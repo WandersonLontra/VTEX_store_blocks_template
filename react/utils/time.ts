@@ -18,7 +18,7 @@ export const parseTimeRemaining = (totalSeconds: number): TimeSplit => {
   const seconds = Math.floor(
     (totalSeconds % SECONDS_IN_HOUR) % SECONDS_IN_MINUTE
   )
-
+  
   return {
     hours: fillWithZero(2, hours),
     minutes: fillWithZero(2, minutes),
@@ -39,11 +39,11 @@ export const tick = (
   const finalDate = new Date(targetDate)
   const now = new Date()
 
-  const secondsLeft =
-    (finalDate.getTime() - now.getTime()) / ONE_SECOND_IN_MILLIS
+  const secondsLeft = (finalDate.getTime() - now.getTime()) / ONE_SECOND_IN_MILLIS;
 
   setTimeout(() => {
     dispatchFn(parseTimeRemaining(secondsLeft))
+    
   }, ONE_SECOND_IN_MILLIS)
 }
 
